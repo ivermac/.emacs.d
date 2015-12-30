@@ -49,7 +49,13 @@
     ;; https://github.com/clojure-emacs/cider
     ;; CIDER - Clojure Interactive Development Environment that Rocks for Emacs
     cider
+
+    exec-path-from-shell
     ))
+
+;; ensure env var inside Emacs look the same as in the user's shell - osx
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize))
 
 ;; install packages
 (mapc #'(lambda (package)
@@ -74,7 +80,7 @@
 ;; --------------------------------------
 
 (elpy-enable)
-;;(elpy-use-ipython)
+;; (elpy-use-ipython)
 
 ;; alias for pyvenv-workon
 (defalias 'workon 'pyvenv-workon)
