@@ -6,7 +6,13 @@
 (require 'package)
 
 (add-to-list 'package-archives
-       '("melpa" . "http://melpa.org/packages/") t)
+             '("melpa" . "http://melpa.org/packages/") t)
+
+;; load neotree - clone it first then provide it's path
+;; use command+F8 to toggle
+(add-to-list 'load-path "/Users/ekisa/.emacs.d/elpa/neotree")
+(require 'neotree)
+(global-set-key [f8] 'neotree-toggle)
 
 (package-initialize)
 (print "installing..")
@@ -50,6 +56,7 @@
     ;; CIDER - Clojure Interactive Development Environment that Rocks for Emacs
     cider
 
+    ;; useful for osx users
     exec-path-from-shell
     ))
 
